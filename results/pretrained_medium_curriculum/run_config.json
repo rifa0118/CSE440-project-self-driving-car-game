@@ -1,0 +1,64 @@
+{
+  "track": "medium",
+  "environment": {
+    "track": "medium",
+    "state_size": 6,
+    "action_size": 4,
+    "simulation": {
+      "width": 960,
+      "height": 640,
+      "fps": 60,
+      "max_speed": 7.0,
+      "acceleration": 0.2,
+      "brake_power": 0.34,
+      "friction": 0.035,
+      "steering_rate_deg": 4.2,
+      "car_length": 30.0,
+      "car_width": 16.0,
+      "sensor_angles_deg": [
+        -90.0,
+        -45.0,
+        0.0,
+        45.0,
+        90.0
+      ],
+      "sensor_max_distance": 165.0,
+      "sensor_step": 2.0,
+      "max_steps": 1800,
+      "target_laps": 1,
+      "stuck_speed_threshold": 0.18,
+      "stuck_step_limit": 180,
+      "checkpoint_count": 12
+    },
+    "rewards": {
+      "driving_forward": 1.0,
+      "checkpoint": 20.0,
+      "lap_complete": 100.0,
+      "collision": -100.0,
+      "driving_backwards": -10.0,
+      "standing_still": -2.0
+    }
+  },
+  "training": {
+    "episodes": 1000,
+    "gamma": 0.99,
+    "learning_rate": 0.001,
+    "batch_size": 64,
+    "replay_capacity": 50000,
+    "replay_warmup": 750,
+    "train_every_steps": 4,
+    "target_update_steps": 600,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.05,
+    "epsilon_decay_steps": 45000,
+    "gradient_clip_norm": 10.0,
+    "hidden_size": 64,
+    "seed": 440,
+    "checkpoint_every_episodes": 25,
+    "plot_every_episodes": 25,
+    "double_dqn": true,
+    "device": "cpu",
+    "torch_threads": 1
+  },
+  "created_utc": "2026-08-25T00:10:15.542552+00:00"
+}
