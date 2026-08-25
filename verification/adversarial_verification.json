@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "missing Hard display track",
+      "expected": "verifier rejects release",
+      "result": "PASS",
+      "evidence": "Missing required release paths: assets/tracks/hard.png"
+    },
+    {
+      "case": "corrupt Easy checkpoint",
+      "expected": "verifier rejects release",
+      "result": "PASS",
+      "evidence": "torch weights-only loader rejected corrupt checkpoint"
+    },
+    {
+      "case": "malformed Easy evaluation JSON",
+      "expected": "verifier rejects release",
+      "result": "PASS",
+      "evidence": "JSON decoder rejected malformed evidence"
+    }
+  ]
+}
