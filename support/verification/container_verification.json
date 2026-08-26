@@ -1,0 +1,74 @@
+{
+  "status": "PASS_WITH_ENVIRONMENT_BLOCKER",
+  "checks": {
+    "required_paths": {
+      "required_paths": 27
+    },
+    "source_completeness": {
+      "python_files_scanned": 19
+    },
+    "tracks": {
+      "easy": {
+        "points": 720,
+        "road_width": 116.0,
+        "start_index": 0
+      },
+      "medium": {
+        "points": 720,
+        "road_width": 98.0,
+        "start_index": 0
+      },
+      "hard": {
+        "points": 720,
+        "road_width": 84.0,
+        "start_index": 0
+      }
+    },
+    "models": {
+      "easy": {
+        "model_sha256": "2b1364bdf79e56ffb728cfe262ef52af34aab9ae7d6fef75402f76bd8b4d1f19",
+        "verified_episodes": 20,
+        "verified_success_rate": 1.0,
+        "verified_collisions": 0,
+        "verified_mean_reward": 631.0,
+        "verified_mean_lap_steps": 295,
+        "checkpoint_episode": 292,
+        "training_type": "pure_dqn_with_experience_replay"
+      },
+      "medium": {
+        "model_sha256": "9c4811e8cc7c96f9023632b3a11a993b1cac73dd806e3e8ea1cc02bea2932bc9",
+        "verified_episodes": 20,
+        "verified_success_rate": 1.0,
+        "verified_collisions": 0,
+        "verified_mean_reward": 576.0,
+        "verified_mean_lap_steps": 241,
+        "checkpoint_episode": 420,
+        "training_type": "curriculum_dqn_with_experience_replay"
+      },
+      "hard": {
+        "model_sha256": "cf00fb4cf206bf621c26421809296d81bafd83ad24c511dd28f8cea43dd26042",
+        "verified_episodes": 20,
+        "verified_success_rate": 1.0,
+        "verified_collisions": 0,
+        "verified_mean_reward": 593.0,
+        "verified_mean_lap_steps": 259,
+        "checkpoint_episode": 961,
+        "training_type": "curriculum_dqn_with_experience_replay"
+      }
+    },
+    "office_files": {
+      "CSE440_Self_Driving_Car_Project_Report.docx": "e295a57c817f5bd131cbc59bf36ef33a23844e87dae65d94e04b92845d46f579",
+      "CSE440_Self_Driving_Car_Presentation.pptx": "bf335a94b6b4845bcc888b864958194cbbcf4fb70aab30c8fb0eb6259188c2c8"
+    },
+    "packaging_junk": {
+      "forbidden_entries": 0
+    },
+    "manifest": {
+      "files_checked": 105
+    },
+    "pygame_runtime": {
+      "status": "ENVIRONMENT_BLOCKED",
+      "reason": "pygame is not installed"
+    }
+  }
+}
