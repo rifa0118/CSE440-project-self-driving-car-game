@@ -1,0 +1,201 @@
+{
+  "model": "/Users/isti115/CSE Projects/CSE440-project-self-driving-car-game-Abir/models/easy_best.pth",
+  "metadata": {
+    "track": "easy",
+    "episode": 470,
+    "episode_reward": 702.0,
+    "completed": true,
+    "run_dir": "/Users/isti115/CSE Projects/CSE440-project-self-driving-car-game-Abir/results/easy_20260825T155426Z",
+    "source": "pygame_live_training"
+  },
+  "summary": {
+    "episodes": 20,
+    "success_rate": 0.0,
+    "mean_reward": 47.35,
+    "best_reward": 291.0,
+    "mean_lap_steps": null,
+    "total_collisions": 20,
+    "episode_results": [
+      {
+        "episode": 1,
+        "reward": 28.0,
+        "steps": 93,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 2,
+        "reward": 291.0,
+        "steps": 236,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 3,
+        "reward": 28.0,
+        "steps": 93,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 4,
+        "reward": 28.0,
+        "steps": 93,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 5,
+        "reward": 80.0,
+        "steps": 125,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 6,
+        "reward": 161.0,
+        "steps": 166,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 7,
+        "reward": 28.0,
+        "steps": 93,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 8,
+        "reward": 16.0,
+        "steps": 81,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 9,
+        "reward": 28.0,
+        "steps": 93,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 10,
+        "reward": 32.0,
+        "steps": 97,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 11,
+        "reward": 28.0,
+        "steps": 93,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 12,
+        "reward": 22.0,
+        "steps": 87,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 13,
+        "reward": 28.0,
+        "steps": 93,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 14,
+        "reward": 32.0,
+        "steps": 97,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 15,
+        "reward": 28.0,
+        "steps": 93,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 16,
+        "reward": -21.0,
+        "steps": 64,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 17,
+        "reward": 28.0,
+        "steps": 93,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 18,
+        "reward": 28.0,
+        "steps": 93,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 19,
+        "reward": 28.0,
+        "steps": 93,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      },
+      {
+        "episode": 20,
+        "reward": 26.0,
+        "steps": 91,
+        "completed": false,
+        "laps": 0,
+        "collisions": 1,
+        "termination_reason": "collision"
+      }
+    ]
+  }
+}
