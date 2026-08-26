@@ -2,7 +2,7 @@
 
 A complete 2D racing game in which a car learns to drive using **Deep Q-Network (DQN) reinforcement learning**. The project uses Python, Pygame, PyTorch, NumPy, Pillow, and Matplotlib and is designed to train on a normal CPU-only laptop.
 
-![The trained DQN driving with five live distance sensors](support/docs/images/gameplay.png)
+![The trained DQN driving with five live distance sensors](others/images/gameplay.png)
 
 ## What is included
 
@@ -96,7 +96,7 @@ python main.py describe
 
 ## Reinforcement-learning design
 
-![Agent–environment loop](support/docs/images/architecture.png)
+![Agent–environment loop](others/images/architecture.png)
 
 ### State
 ```text
