@@ -181,3 +181,9 @@ Models are written to:
 - The physics are deliberately simple and educational, not a realistic vehicle simulator.
 - DQN results can vary with seed and hyperparameters. Raw logs are kept so results can be inspected rather than merely claimed.
 - This project demonstrates reinforcement learning; it is not software for controlling a real vehicle.
+
+## Video Demo link of the Project
+
+https://drive.google.com/file/d/1UnZuLWp-DlSeWpC30vlNtAYJ7OgpmhO_/view?usp=sharing
+
+
