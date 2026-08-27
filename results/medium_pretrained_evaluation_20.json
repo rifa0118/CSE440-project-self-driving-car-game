@@ -1,0 +1,203 @@
+{
+  "track": "medium",
+  "model": "models/medium_best.pth",
+  "metadata": {
+    "track": "medium",
+    "episode": 420,
+    "episode_reward": 697.0,
+    "completed": true,
+    "run_dir": "results/pretrained_medium_curriculum",
+    "training_type": "curriculum_dqn_with_experience_replay",
+    "curriculum_source": "easy_best.pth"
+  },
+  "summary": {
+    "episodes": 20,
+    "success_rate": 1.0,
+    "mean_reward": 576.0,
+    "best_reward": 576.0,
+    "mean_lap_steps": 241,
+    "total_collisions": 0,
+    "episode_results": [
+      {
+        "episode": 1,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 2,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 3,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 4,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 5,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 6,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 7,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 8,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 9,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 10,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 11,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 12,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 13,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 14,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 15,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 16,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 17,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 18,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 19,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      },
+      {
+        "episode": 20,
+        "reward": 576.0,
+        "steps": 241,
+        "completed": true,
+        "laps": 1,
+        "collisions": 0,
+        "termination_reason": "lap_complete"
+      }
+    ]
+  }
+}

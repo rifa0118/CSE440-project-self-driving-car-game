@@ -1,94 +1,218 @@
-# Self-Driving Car Racing Game 🏎️🤖
+# CSE440 Self-Driving Car Racing Game
 
-Welcome to the **Self-Driving Car Racing Game**! This is a complete Python-based racing game built with Pygame that features a smart, self-driving Artificial Intelligence (AI) car. 
+A complete 2D racing game in which a car learns to drive using **Deep Q-Network (DQN) reinforcement learning**. The project uses Python, Pygame, PyTorch, NumPy, Pillow, and Matplotlib and is designed to train on a normal CPU-only laptop.
 
-## 📖 About the Project
+![The trained DQN driving with five live distance sensors](docs/images/gameplay.png)
 
-This project explores how a computer can learn to drive a car on its own in a simulated world. Instead of writing strict rules for how to drive, the AI learns through a process called **Deep Reinforcement Learning** (specifically, Dueling DQN). 
+## What is included
 
-Just like a human learning to ride a bike, the AI starts by making random moves. When it stays on the track and drives fast, it gets a "reward". When it crashes into traffic, barriers, or drives off the road, it gets a "penalty". By playing the game over and over, the AI's "brain" slowly figures out the best way to steer, accelerate, and brake to get the highest score.
+- A polished Pygame menu and live game interface.
+- Keyboard-controlled manual racing.
+- Three image-based track difficulties: easy, medium, and hard.
+- Five ray sensors plus speed as the six-value AI state.
+- Four discrete actions: turn left, turn right, go straight, and brake.
+- A `6 → 64 → 64 → 4` PyTorch DQN.
+- Experience replay, epsilon-greedy exploration, target network updates, gradient clipping, and optional Double DQN targets.
+- Live start, pause, continue, speed, and save controls during training.
+- Model save/load through `.pth` checkpoints.
+- Headless CLI training and evaluation.
+- Reward, lap-time, and collision graphs.
+- Validated trained checkpoints for Easy, Medium, and Hard.
+- Automated tests and GitHub Actions CI.
+- A polished editable project report and presentation in `submission/`, plus report source, demo script, viva answers, and guides in `docs/`.
 
-With this project, you can:
-- **Play the game yourself** to understand the physics and controls.
-- **Train the AI** from scratch and watch it slowly get better at driving.
-- **Watch a fully trained AI** confidently dodge obstacles and race at high speeds.
-- **Compete against the AI** in an exciting 3-lap race to see who is faster!
+## Verified included result
 
-## 🎮 Features
+The package includes validated `*_best.pth` checkpoints for Easy, Medium, and Hard. Easy was trained directly; Medium and Hard were produced by curriculum continuation from the previous difficulty, then each checkpoint was evaluated greedily from its standard start position.
 
-- **Manual Driving:** Drive the car yourself using the W/A/S/D or Arrow Keys.
-- **AI Training Mode:** Start the training process and watch the AI learn by trial and error. You can pause the training at any time, and the AI's "memory" will automatically save so you can continue later.
-- **Watch AI Drive:** Load a fully trained AI model and watch it navigate the endless track and traffic automatically.
-- **AI Race Mode:** Pit your trained AI against 3 other computer-controlled cars in a thrilling 3-lap race!
-- **Car Customization:** Change your car's color and adjust its speed, acceleration, and handling.
-- **Live HUD Display:** A screen overlay shows your current speed, health bar, lap times, and the AI's learning progress.
+| Measurement | Result |
+|---|---:|
+| Training episodes | 300 |
+| Exploratory training episodes completing a lap | 110 / 300 (36.7%) |
+| Average reward over the final 50 training episodes | 614.7 |
+| Greedy evaluation episodes | 20 |
+| Greedy evaluation success | 20 / 20 (100%) |
+| Greedy evaluation collisions | 0 |
+| Mean greedy lap length | 295 simulation steps (4.92 s at 60 FPS) |
 
-## 🧠 How the AI Works (Simply Explained)
+The complete raw Easy metrics and graphs are under `results/pretrained_easy_300_episodes/`. Curriculum-training logs for Medium and Hard are under `results/pretrained_medium_curriculum/` and `results/pretrained_hard_curriculum/`.
 
-- **The Eyes:** Every fraction of a second, the AI looks at 18 different things around it. This includes its current speed, how the road curves ahead, its health, and the distance to the nearest obstacles.
-- **The Brain:** It uses a smart neural network to decide the best move. It figures out how safe the current situation is and chooses the best action to take right now.
-- **The Memory:** It remembers past drives in a "Replay Buffer". It looks back at its biggest mistakes so it can learn not to repeat them.
-- **The Actions:** Based on what it sees, the AI decides whether to steer left, steer right, go straight, or hit the brakes.
+| Packaged best checkpoint | 20-episode greedy success | Collisions | Mean reward | Mean lap steps |
+|---|---:|---:|---:|---:|
+| Easy | 20/20 | 0 | 631.0 | 295 |
+| Medium | 20/20 | 0 | 576.0 | 241 |
+| Hard | 20/20 | 0 | 593.0 | 259 |
 
-## ⚙️ Setup & Installation
+Evaluation is deterministic from each track's standard start pose. These figures demonstrate reproducible packaged-track behavior; they are not a claim about arbitrary starts or real-world driving.
 
-To play the game, you will need Python 3.8 or a newer version installed on your computer.
+## Fastest Windows setup
 
-1. **Install the required packages:**
-   Open your terminal or command prompt in the game folder and run:
-   ```bash
-   pip install -r requirements.txt
-   ```
+1. Install **64-bit Python 3.10 or newer** and enable “Add Python to PATH.”
+2. Double-click `setup_windows.bat`.
+3. Double-click `run_game.bat`.
+4. Select **Watch Trained AI** with Easy, Medium, or Hard to run the included validated checkpoint immediately.
 
-## 🚀 How to Play
+The setup script creates `.venv`, installs all dependencies, and validates the generated track assets.
 
-### 1. Launch the Game Menu
-To open the main menu, run this command:
+## Command-line usage
+
 ```bash
-python main.py
+# Install
+python -m venv .venv
+.venv\Scripts\activate
+python -m pip install -r requirements.txt
+
+# Open the full Pygame app
+python main.py gui
+
+# Train without rendering (faster)
+python main.py train --track easy --episodes 500
+
+# Evaluate a model over 20 greedy episodes
+python main.py evaluate --track easy --model models/easy_best.pth --episodes 20
+
+# Recreate all track images and metadata
+python main.py generate-assets --force
+
+# Print the state/action/reward configuration
+python main.py describe
 ```
 
-From the menu, you can easily click to start playing, customize your car, train the AI, or watch the AI race.
+On macOS or Linux, activate the environment with `source .venv/bin/activate`.
 
-### 2. Direct Commands (For Advanced Users)
-You can also run specific parts of the game directly from your terminal:
-```bash
-# Train the AI from scratch
-python train.py
+## GUI modes and controls
 
-# Watch a trained AI drive
-python evaluate.py
+### Main menu
 
-# Start a 3-lap race against bots
-python race.py
+- **Manual Drive** — control the car with the keyboard.
+- **Train AI (DQN)** — watch reinforcement learning happen live.
+- **Watch Trained AI** — run a saved model with exploration disabled.
+- **Evaluate Trained AI** — run 20 headless test episodes and save JSON results.
+- **Settings** — choose the track, car colour, and training episode count.
+
+### Manual driving
+
+| Key | Action |
+|---|---|
+| Up | Accelerate |
+| Down | Brake |
+| Left / Right | Steer |
+| `R` | Reset after a collision |
+| `G` | Show/hide sensors |
+| `Esc` | Return to the main menu |
+
+### Live training
+
+| Key | Action |
+|---|---|
+| Space | Pause or continue |
+| `+` / `-` | Increase or decrease simulation steps per rendered frame |
+| `S` | Save the current checkpoint |
+| `G` | Show/hide sensors |
+| `Esc` | Save and return to the main menu |
+
+## Reinforcement-learning design
+
+![Agent–environment loop](docs/images/architecture.png)
+
+### State
+
+```text
+[left, front_left, front, front_right, right, speed]
 ```
 
-## 💡 Training Tips
+All six values are normalized to `[0, 1]`. The five sensor rays stop when they encounter a black pixel in the track mask or reach maximum range.
 
-- **Patience is Key:** The first 100 tries will look completely random because the AI is exploring its options. Real learning starts after that!
-- **Save and Continue:** You don't have to train it all in one sitting. Closing the game window saves the AI's progress. When you run `train.py` again, it picks up right where it left off.
-- **Watch the Score:** You want to see the "moving average reward" slowly go up over time. This means the AI is getting smarter.
+### Actions
 
-## 📁 Project Files Structure
+| Index | Action | Control applied |
+|---:|---|---|
+| 0 | Turn left | throttle + left steering |
+| 1 | Turn right | throttle + right steering |
+| 2 | Go straight | throttle |
+| 3 | Brake | braking, no steering |
 
+### Reward function
+
+| Situation | Reward |
+|---|---:|
+| Driving forward | `+1` |
+| Passing a checkpoint | `+20` |
+| Completing a lap | `+100` |
+| Collision | `-100` |
+| Driving backwards | `-10` |
+| Standing still | `-2` |
+
+### Network
+
+```text
+Input: 6 values
+Hidden layer: 64 ReLU units
+Hidden layer: 64 ReLU units
+Output: 4 action Q-values
 ```
-├── main.py              # The main game menu
-├── train.py             # Script to train the AI
-├── evaluate.py          # Script to watch the AI drive
-├── race.py              # Script to start the 3-lap race
+
+The policy network learns from random batches in replay memory. A separate target network stabilizes the Bellman target. Epsilon decreases linearly from `1.00` to `0.05`, changing the agent from mostly exploratory behavior to mostly learned behavior.
+
+## Project structure
+
+```text
+CSE440-project-self-driving-car-game/
 ├── ai/
-│   ├── dqn.py           # The AI's Neural Network Brain
-│   └── replay_buffer.py # The AI's Memory system
-├── src/
-│   ├── game.py          # The core game engine and rules
-│   ├── env.py           # Connects the game to the AI
-│   ├── car.py           # Car physics (movement and crashes)
-│   ├── track.py         # Builds the road and places obstacles
-│   ├── hud.py           # Draws the speed and health on screen
-│   ├── objects.py       # Code for traffic cars, barriers, and trees
-│   ├── config.py        # Game settings (speeds, laps, etc.)
-│   └── profile.py       # Saves your car customization
-├── assets/              # Images for cars, roads, and objects
-├── models/              # Where your trained AI brains are saved
-└── requirements.txt     # List of Python packages needed
+│   ├── agent.py              # epsilon-greedy DQN and checkpointing
+│   ├── live_trainer.py       # non-blocking GUI training
+│   ├── network.py            # 6-64-64-4 PyTorch model
+│   ├── replay_buffer.py      # experience replay memory
+│   └── trainer.py            # headless train/evaluate loops
+├── assets/tracks/            # coloured tracks, masks, metadata
+├── docs/                     # report, presentation, guide, viva, demo
+├── game/
+│   ├── app.py                # Pygame screens and controls
+│   ├── car.py                # vehicle kinematics
+│   ├── environment.py        # state, actions, rewards, episodes
+│   ├── renderer.py           # visual interface
+│   ├── sensors.py            # five distance rays
+│   └── track.py              # image masks and track generation
+├── models/                   # included and newly trained checkpoints
+├── results/                  # CSV, JSON, and graphs
+├── scripts/                  # asset and documentation generators
+├── tests/                    # 20 automated tests
+├── config.py                 # central settings
+├── main.py                   # CLI entry point
+└── requirements.txt
 ```
+
+## Training outputs
+
+Every run gets a timestamped directory under `results/` containing:
+
+- `run_config.json` — exact environment and training settings;
+- `metrics.csv` — one row per episode;
+- `summary.json` — aggregate and full episode data;
+- `reward_per_episode.png`;
+- `lap_time_per_episode.png`;
+- `collision_count_per_episode.png`.
+
+Models are written to:
+
+- `models/<track>_best.pth` — highest completed/reward score seen in the run;
+- `models/<track>_latest.pth` — resumable checkpoint.
+
+## Testing
+
+```bash
+python -m pip install -r requirements-dev.txt
+python -m compileall -q .
+pytest -q
+```
+
+The current suite contains 19 tests covering tracks, collision masks, car physics, sensors, the six-value environment contract, rewards, DQN dimensions, replay sampling, optimization, checkpoint round trips, a training smoke run, and the included model completing a full lap.
+
+## Honest scope and limitations
+
+- Validated pretrained checkpoints are included for **Easy, Medium, and Hard**. Each packaged best checkpoint completed 20/20 deterministic greedy evaluation episodes from its standard start position with zero collisions. These results do not prove random-start generalization.
+- The physics are deliberately simple and educational, not a realistic vehicle simulator.
+- The default evaluation uses a fixed start pose. Random-start generalization would require additional training and evaluation.
+- DQN results can vary with seed and hyperparameters. Raw logs are kept so results can be inspected rather than merely claimed.
+- This project demonstrates reinforcement learning; it is not software for controlling a real vehicle.
+
